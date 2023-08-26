@@ -81,7 +81,7 @@ export function composeProps(...fns: (GetStaticProps | GetServerSideProps)[]) {
     }
 
     redirect = null
-    revalidate = null
+    revalidate = false
     propsMap.clear()
 
     return result;
