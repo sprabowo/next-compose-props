@@ -1,25 +1,25 @@
-# next-compose-props
+# next-props-composer
 
-[![npm version](https://img.shields.io/npm/v/next-compose-props.svg?style=flat-square)](https://npmjs.org/package/next-compose-props 'View this project on npm')
+[![npm version](https://img.shields.io/npm/v/next-props-composer.svg?style=flat-square)](https://npmjs.org/package/next-props-composer 'View this project on npm')
 
 Compose multiple Next.js `getStaticProps` or `getServerSideProps` functions.
 
 ## Install
 
 ```sh
-npm install next-compose-props
+npm install next-props-composer
 ```
 
-`next-compose-props` has a peer dependency of `next@^10.0.0`.
+`next-props-composer` has a peer dependency of `next@^10.0.0`.
 
 ## Usage
 
-`next-compose-props` allows you to compose multiple [data-fetching methods](https://nextjs.org/docs/basic-features/data-fetching) for pre-rendering pages.
+`next-props-composer` allows you to compose multiple [data-fetching methods](https://nextjs.org/docs/basic-features/data-fetching) for pre-rendering pages.
 
 Export a `getStaticProps` or `getServerSideProps` function from your page that is mapped to `composeProps`.
 
 ```ts
-import { composeProps } from "next-compose-props";
+import { composeProps } from "next-props-composer";
 
 export const getStaticProps = composeProps(foo, bar, baz);
 ```
@@ -51,11 +51,11 @@ export const getBar: GetStaticProps = async () => {
 };
 ```
 
-And export an async `getStaticProps` or `getServerSideProps` function on your pages like you usually would. Each props object is merged into one.
+And export an async `getStaticProps` or `getServerSideProps` function on your pages like you usually would. Each props object is merged into one (your props won't be transferable from one function to another. it works async and independently).
 
 ```tsx
 // pages/foo/[id].js
-import { composeProps } from "next-compose-props";
+import { composeProps } from "next-props-composer";
 import { getFoo, getBar } from "lib/api";
 
 function Page({ foo, bar }) {
