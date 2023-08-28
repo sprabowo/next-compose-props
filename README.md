@@ -51,7 +51,7 @@ export const getBar: GetStaticProps = async () => {
 };
 ```
 
-And export an async `getStaticProps` or `getServerSideProps` function on your pages like you usually would. Each props object is merged into one (your props won't be transferable from one function to another. it works async and independently).
+And export an async `getStaticProps` or `getServerSideProps` function on your pages like you usually would. Each props object is merged into one (your props won't be transferable from one function to another. it works independently).
 
 ```tsx
 // pages/foo/[id].js
